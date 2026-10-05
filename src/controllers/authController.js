@@ -1,8 +1,10 @@
 // Base de datos temporal en memoria para almacenar usuarios
 const usuariosDB = [];
 
+/**
+ * Controlador para el registro de usuarios.
+ */
 const registrarUsuario = (req, res) => {
-  // Ajuste a "usuario" en lugar de "username"
   const { usuario, password } = req.body;
 
   if (!usuario || !password) {
@@ -20,14 +22,15 @@ const registrarUsuario = (req, res) => {
 
   usuariosDB.push({ usuario, password });
 
-  // Mensaje exacto solicitado en el Escenario A
   return res.status(201).json({
     mensaje: "Registro satisfactorio en Pasos Grandes"
   });
 };
 
+/**
+ * Controlador para la autenticación (Login).
+ */
 const iniciarSesion = (req, res) => {
-  // Ajuste a "usuario" en lugar de "username"
   const { usuario, password } = req.body;
 
   const usuarioEncontrado = usuariosDB.find(
@@ -35,12 +38,10 @@ const iniciarSesion = (req, res) => {
   );
 
   if (usuarioEncontrado) {
-    // Mensaje exacto solicitado en el Escenario B
     return res.status(200).json({
       mensaje: "Autenticación satisfactoria"
     });
   } else {
-    // Mensaje exacto solicitado en el Escenario C
     return res.status(401).json({
       error: "Error en la autenticación"
     });
