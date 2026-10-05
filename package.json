@@ -1,0 +1,12 @@
+{
+  "name": "servicio-autenticacion-sena",
+  "version": "1.0.0",
+  "description": "Evidencia GA7-220501096-AA5-EV01 - API de Registro y Login",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
